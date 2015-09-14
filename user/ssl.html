@@ -57,15 +57,18 @@ else elements[i].disabled = true;
   <tr><td>&nbsp;</td><td>|LANG_COMPANY_DIV|</td><td><input type=text class=combot size=18 name=division></td></tr>
   <tr><td>&nbsp;</td><td>|LANG_COMMON_NAME|</td><td><input type=text class=combot size=20 name=name value="www.|DOMAIN|"></td></tr>
   <tr><td>&nbsp;</td><td>|LANG_EMAIL|</td><td><input type=text class=combot name=email size=30></td></tr>
-  <tr><td>&nbsp;</td><td>Key Size (bits)</td><td><select  class="combot selectclass" name="keysize"><option selected="selected">2048</option></select></td></tr>
-  
+  <tr><td>&nbsp;</td><td>|LANG_KEYSIZE|</td><td><select class=combot name=keysize><option selected>2048</option><option>4096</option></select></td></tr>
+  <tr><td>&nbsp;</td><td>|LANG_CERT_TYPE|</td><td><select class=combot name=encryption><option value="rsa">SHA1</option><option value="sha256" selected>SHA256</option></select></td></tr>
+
   <tr style="padding-top: 12px !important;font-weight:bold;">
     <td align=center><input type=radio name=type value="paste" |PASTECHECKED| onclick="setRequest('off');"></td>
     <td colspan=2>|LANG_PASTE|</td>
   </tr>
   <tr><td>&nbsp;</td>
     <td colspan=2>
-      <textarea style="font-family: courier new; width: 610px;" name=certificate rows=16 class=combot>|KEY||CERTIFICATE|</textarea>
+      <textarea style="font-family: courier new; width: 610px;" name=certificate rows=16 class=combot>|KEY||CERTIFICATE|</textarea><br>
+      <input type=button value="|LANG_PASTE_FROM|" onClick="pasteCertificate(document.info.certificate)">
+			<input type=button value="|LANG_COPY_TO|" onClick="copyCertificate(document.info.certificate)"> |LANG_IE_ONLY|
     </td>
   </tr>
   </tbody>
